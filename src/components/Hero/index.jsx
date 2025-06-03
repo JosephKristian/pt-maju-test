@@ -2,15 +2,17 @@ import React from 'react';
 import HeroBackground from './HeroBackground';
 import HeroSection from './HeroSection';
 
-
 const Hero = () => {
     return (
-    <>
-        <section className="relative h-[850px] w-full text-white overflow-hidden flex flex-col items-center justify-start" style={{ maxWidth: '1440px', margin: '0 auto' }}>
+        <>
+            {/* Background */}
             <HeroBackground />
-            <HeroSection />
-        </section>
-    </>
+
+            {/* Container */}
+            <div className="relative flex flex-col items-center justify-start h-[850px] px-[16px] md:px-[56px] mx-auto w-full max-w-[1440px]">
+                <HeroSection />
+            </div>
+        </>
     );
 };
 

@@ -13,7 +13,7 @@ const OurServicesSection = () => {
   };
 
   return (
-    <div className="py-16">
+    <div>
       <SectionHeader
         badgeText="OUR SERVICES"
         badgeMinWidth="min-w-[153px]"

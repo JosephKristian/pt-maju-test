@@ -1,13 +1,16 @@
+import { motion, AnimatePresence } from "framer-motion";
 import DirectionalButton from "../Buttons/DirectionalButton";
 
 const AccordionItem = ({ title, image, content, index, isOpen, onClick }) => {
     return (
-        <div
+        <motion.div
             className={`
             pt-[32px] pb-[36px] md:p-[40px] border-b transition-colors duration-300 group
             ${isOpen ? "border-[#72A5E8]" : "border-[#DFEBFA]"}
-            hover:bg-[#F1F5F9]"
-        `}
+            hover:bg-[#F1F5F9]`}
+            layout
+            initial={false}
+            animate={{ backgroundColor: isOpen ? "#F1F5F9" : "transparent" }}
         >
             <button
                 onClick={() => onClick(index)}
@@ -17,7 +20,6 @@ const AccordionItem = ({ title, image, content, index, isOpen, onClick }) => {
                 aria-controls={`accordion-content-${index}`}
                 id={`accordion-header-${index}`}
             >
-                {/* Kiri: Index + Title */}
                 <div className="flex-1">
                     <div className="flex items-center md:items-start">
                         <span className={`
@@ -38,77 +40,79 @@ const AccordionItem = ({ title, image, content, index, isOpen, onClick }) => {
                     </div>
                 </div>
 
-                {/* Kanan: Konten & Panah */}
                 <div className="flex items-start gap-6 ml-auto transition-all duration-300 ease-in-out">
-                    {/* Konten selalu dirender, dikendalikan tampilannya via style */}
-                    <div
+                    <motion.div
                         id={`accordion-content-${index}`}
                         role="region"
                         aria-labelledby={`accordion-header-${index}`}
-                        className="hidden md:flex overflow-hidden flex flex-col md:flex-row gap-6 items-start transition-[max-height,opacity] duration-500 ease-in-out"
-                        style={{
-                            maxHeight: isOpen ? 500 : 0,
-                            opacity: isOpen ? 1 : 0,
-                            pointerEvents: isOpen ? "auto" : "none",
-                        }}
+                        className="hidden md:flex overflow-hidden flex-col md:flex-row gap-6 items-start"
+                        initial={false}
+                        animate={{ opacity: isOpen ? 1 : 0, height: isOpen ? "auto" : 0 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                        style={{ pointerEvents: isOpen ? "auto" : "none" }}
                     >
-                        <img
+                        <motion.img
                             src={image}
                             alt={title}
                             className="object-cover rounded-md"
-                            style={{
-                                width: 216,
-                                height: 230,
-                                transition: "opacity 0.3s ease-in-out",
-                                opacity: isOpen ? 1 : 0,
-                            }}
+                            width={216}
+                            height={230}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: isOpen ? 1 : 0 }}
+                            transition={{ duration: 0.3 }}
                         />
                         <p className="text-[#334155] text-[16px] leading-[160%] max-w-[434px]">
                             {content}
                         </p>
-                    </div>
+                    </motion.div>
 
-                    {/* Panah */}
-                    <div className={`transition-transform duration-300 ${isOpen ? "md:rotate-180" : ""}`}>
+                    <motion.div
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="hidden md:block"
+                    >
+                        <DirectionalButton direction="up" className="text-white w-4 h-4" />
+                    </motion.div>
+
+                    {/* Panah versi mobile, tidak rotate */}
+                    <div className="block md:hidden">
                         <DirectionalButton direction="up" className="text-white w-4 h-4" />
                     </div>
+
                 </div>
             </button>
 
-            {/* Konten di luar button */}
-            <div
-                id={`accordion-content-${index}`}
-                role="region"
-                aria-labelledby={`accordion-header-${index}`}
-                className={`
-                block md:hidden
-                overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out
-                ${isOpen ? "mt-6" : ""}
-                `}
-                style={{
-                    maxHeight: isOpen ? 600 : 0,
-                    opacity: isOpen ? 1 : 0,
-                    pointerEvents: isOpen ? "auto" : "none",
-                }}
-            >
-                <div className="flex flex-col md:flex-row gap-6 items-start">
-                    <img
-                        src={image}
-                        alt={title}
-                        className="object-cover rounded-md transition-opacity duration-300"
-                        style={{
-                            width: "358px",
-                            height: "200px",
-                            opacity: isOpen ? 1 : 0,
-                        }}
-                    />
-                    <p className="text-[#334155] text-[14px] leading-[150%] max-w-[358px]">
-                        {content}
-                    </p>
-                </div>
-            </div>
-        </div>
-
+            <AnimatePresence initial={false}>
+                {isOpen && (
+                    <motion.div
+                        id={`accordion-content-${index}`}
+                        role="region"
+                        aria-labelledby={`accordion-header-${index}`}
+                        className="block md:hidden overflow-hidden mt-6"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.5, ease: "easeInOut" }}
+                    >
+                        <div className="flex flex-col md:flex-row gap-6 items-start">
+                            <motion.img
+                                src={image}
+                                alt={title}
+                                className="object-cover rounded-md"
+                                width={358}
+                                height={200}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                            />
+                            <p className="text-[#334155] text-[14px] leading-[150%] max-w-[358px]">
+                                {content}
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     );
 };
 

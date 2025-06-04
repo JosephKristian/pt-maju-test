@@ -1,9 +1,9 @@
 import React from "react";
 
-const HamburgerMenuButton = ({ menuOpen, setMenuOpen }) => {
+const HamburgerMenuButton = ({ onClick }) => {
   return (
     <button
-      onClick={() => setMenuOpen(!menuOpen)}
+      onClick={onClick}
       aria-label="Toggle menu"
       className="md:hidden flex justify-center items-center w-[45px] h-[45px] rounded-full bg-[rgba(60,105,212,1)] z-[10000]"
       style={{ gap: "10px" }}

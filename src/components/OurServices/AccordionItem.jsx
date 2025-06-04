@@ -34,7 +34,9 @@ const AccordionItem = ({ title, image, content, index, isOpen, onClick }) => {
                         font-manrope font-medium text-[24px] leading-[120%] tracking-[0] ml-[21px] md:ml-[106px] mt-[4px]
                         ${isOpen ? "text-[#3356C2]" : "text-[#94A3B8]"}
                         transition-colors duration-300 max-w-[300px]
-                        `}>
+                        `}
+                        style={{ textAlign: 'left' }}
+                        >
                             {title}
                         </div>
                     </div>

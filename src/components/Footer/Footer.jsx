@@ -10,23 +10,24 @@ import LinkedInIcon from '../Icons/LinkedInIcon.jsx';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0F172A] text-white pt-[56px] md:pt-[80px] px-0 md:px-[56px] h-[778px] md:h-[494px]">
-      <div className="w-full px-[24px] md:px-0 md:pl-[12px]">
+    <footer className="bg-[#0F172A] text-white pt-[56px] md:pt-[80px] px-0 md:px-[56px] overflow-hidden">
+      <div className="w-full max-w-screen-xl mx-auto px-[24px] md:px-0 md:pl-[12px]">
         {/* Bagian Atas */}
-        <div className="flex flex-col md:flex-row justify-between ">
+        <div className="flex flex-col md:flex-row justify-between">
           {/* Kolom Kiri */}
           <div className="max-w-[468px]">
             <div className="flex justify-center md:justify-start">
               <LogoDwell />
             </div>
-            <h1 className="font-manrope font-semibold text-[24px] leading-[120%] tracking-normal text-white pt-[56px] mb-[20px] md:text-[28px]">
+            <h1 className="font-manrope font-semibold text-[24px] leading-[120%] tracking-normal text-white pt-[56px] mb-[20px] md:text-[28px] text-center md:text-left">
               Stay informed about the{' '}
               <span className="text-[#679BF1]">
                 latest property opportunities
               </span>
             </h1>
+
             {/* Form Email */}
-            <div className="flex items-center gap-[1px] md:gap-[10px] w-[342px] h-[40px] md:w-[374px] md:h-[48px] rounded-full bg-slate-50 mt-[20px] mb-[16px] p-[1px] md:p-[4px]">
+            <div className="flex items-center gap-[1px] md:gap-[10px] w-full max-w-[374px] h-[40px] md:h-[48px] rounded-full bg-slate-50 mt-[20px] mb-[16px] p-[1px] md:p-[4px] mx-auto md:mx-0">
               <input
                 type="email"
                 placeholder="benolimack@car"
@@ -35,11 +36,13 @@ const Footer = () => {
               <RoundedArrowButton direction="right" />
             </div>
 
-            <PrivacyCheckbox />
+            <div className="text-center md:text-left">
+              <PrivacyCheckbox />
+            </div>
           </div>
 
           {/* Kolom Kanan */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-[56px] md:gap-[162px] text-white/70 mt-[56px] md:mt-[107px] text-center md:text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[56px] md:gap-[162px] text-white/70 mt-[56px] md:mt-[80px] text-center md:text-left">
             {/* Menu ringkas */}
             <div className="order-1 md:order-2 space-y-[10px] text-white text-[14px] leading-[150%] font-medium tracking-[0%] font-inter mx-auto md:mx-0">
               <p><a href="#" className="hover:text-white transition">Services</a></p>
@@ -77,12 +80,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
-
         </div>
-
       </div>
+
       {/* Bagian Bawah */}
-      <div className="mt-[40px] md:mt-[56px] md:mt-[80px] mb-[24px] md:mb-[24px]]">
+      <div className="mt-[56px] mb-[24px] px-[24px] md:px-[56px]">
         <div className="flex flex-col md:flex-row justify-between items-center gap-[20px]">
           <div className="order-2 md:order-1 flex items-center gap-2 text-white/70 text-sm">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">

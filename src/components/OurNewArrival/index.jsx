@@ -39,7 +39,7 @@ const OurNewArrivalSection = () => {
         <div className="relative w-screen left-1/2 -translate-x-1/2">
           <div
             ref={sliderRef}
-            className="overflow-x-auto scroll-smooth transition-transform duration-300 will-change-transform"
+            className="overflow-x-auto scrollbar-hide transition-transform duration-300 will-change-transform"
           >
             <div
               id="property-list"

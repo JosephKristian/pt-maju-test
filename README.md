@@ -12,26 +12,26 @@ The goal of this project is to deliver a pixel-perfect, fully responsive homepag
 - Exact typography, colors, spacing, and layout  
 - Mobile-first and responsive design for multiple device widths  
 - Clean and reusable component structure  
-- Subtle hover and motion effects to enhance user experience without compromising design accuracy
+- Subtle hover and motion effects to enhance user experience without compromising design accuracy  
 
 ---
 
 ## Technology Stack
 
-- React.js for component-based development  
+- React.js (with Vite as the build tool) for fast development and hot module replacement  
 - Tailwind CSS for efficient styling and responsiveness  
 - Framer Motion (optional) for smooth, elegant animations and hover effects  
-- Accessibility and SEO best practices considered
+- Accessibility and SEO best practices considered  
 
 ---
 
 ## How I Built the Homepage
 
-- Components structured per section as per Figma  
-- Each section uses responsive Tailwind utility classes with breakpoints matching design specs  
-- Motion animations applied subtly on scroll and hover for user engagement  
-- Images optimized and handled properly with alt attributes for accessibility  
-- Used semantic HTML tags for better SEO
+- Components structured per section matching Figma layout  
+- Responsive Tailwind utility classes with breakpoints aligned to design specs  
+- Subtle scroll and hover animations using Framer Motion for user engagement  
+- Optimized images with proper alt attributes for accessibility  
+- Semantic HTML tags applied for SEO benefits  
 
 ---
 
@@ -42,53 +42,53 @@ If this website were to be built on WordPress, I would implement the following *
 ### Custom Post Types (CPT)
 
 - **Property**  
-  Used for the property listings section, containing all relevant data such as price, area, bedrooms, bathrooms, status, images, and location.
+  For property listings: price, area, bedrooms, bathrooms, status, images, location, etc.
 
 - **Team Member**  
-  For the team section, including fields for name, position, photo, bio, and social media links.
+  For the team section: name, role, photo, bio, social links.
 
 - **Service**  
-  Representing the services offered with title, description, icon/image, and related content.
+  For services offered: title, description, icon/image.
 
 - **New Arrival**  
-  For highlighting new properties or offers, including images, descriptions, and availability status.
+  For highlighting new properties or offers with images and descriptions.
 
 ### Advanced Custom Fields (ACF)
 
 - **Repeater Fields**  
-  For flexible content like multiple property images or team member social links.
+  For galleries, multiple images, or social links.
 
 - **Flexible Content**  
-  To create modular homepage sections that can be added, removed, or reordered easily by content managers.
+  For modular homepage sections editable by content managers.
 
 - **Relationship Fields**  
-  Linking related posts, such as properties to agents or services to teams.
+  To link posts such as properties to agents or services to teams.
 
 - **Options Pages**  
-  For global settings such as contact information, footer content, social media links, and site-wide banners.
+  For global settings like contact info, footer content, and site-wide banners.
 
 ---
 
-## How to Run
+## How to Run Locally
 
 1. Clone the repository  
 2. Run `npm install` to install dependencies  
-3. Run `npm start` to launch the local development server  
-4. View the project in your browser at `http://localhost:3000`
+3. Run `npm run dev` to start the Vite development server  
+4. Open [http://localhost:3000](http://localhost:3000) in your browser  
 
 ---
 
 ## Final Notes
 
-I carefully followed the design and requirements, ensuring the highest level of precision and responsiveness. Hover effects were added tastefully without deviating from the design language. The WordPress CPT and ACF strategy ensures this project can be extended and managed easily by non-technical content editors.
+I have prioritized pixel-perfect accuracy and responsiveness in the homepage slice. Hover effects were added to enrich the UI while respecting the original design language. The proposed CPT and ACF structure provides a solid foundation for a scalable, easily manageable WordPress backend.
 
 ---
 
-If you have any questions or would like to discuss further improvements or integrations, please do not hesitate to reach out.
+If you have any questions or want to discuss further, feel free to contact me.
 
 ---
 
 Thank you for the opportunity!
 
-Joseph Tanudjaja  
+**Joseph Tanudjaja**  
 [josephtanudjaja10@gmail.com](mailto:josephtanudjaja10@gmail.com)

@@ -1,12 +1,43 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import PillButton from '../Buttons/PillButton';
 import Badge from '../Badges/BadgesPrimary';
 import aboutData from './data/aboutData';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      containerRef.current,
+      {
+        opacity: 0,
+        y: 50,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 80%',
+          toggleActions: 'play reverse play reverse', // <-- Animasi play dan reverse saat scroll turun dan naik
+          // markers: true, // Uncomment ini untuk debugging posisi scroll trigger
+        },
+      }
+    );
+  }, []);
+
   return (
-    <div className="flex flex-col md:flex-row items-start px-4 md:px-0">
+    <div
+      ref={containerRef}
+      className="flex flex-col md:flex-row items-start px-4 md:px-0"
+    >
       {/* Kolom Kiri */}
       <div className="w-full max-w-[358px] h-auto aspect-[358/283] md:max-w-[609px] md:aspect-[609/465]">
         <img

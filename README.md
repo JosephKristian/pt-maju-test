@@ -20,6 +20,7 @@ The goal of this project is to deliver a pixel-perfect, fully responsive homepag
 
 - React.js (with Vite as the build tool) for fast development and hot module replacement  
 - Tailwind CSS for efficient styling and responsiveness  
+- **GSAP** for performant and flexible animation control, including scroll-triggered effects  
 - Framer Motion (optional) for smooth, elegant animations and hover effects  
 - Accessibility and SEO best practices considered  
 
@@ -29,7 +30,7 @@ The goal of this project is to deliver a pixel-perfect, fully responsive homepag
 
 - Components structured per section matching Figma layout  
 - Responsive Tailwind utility classes with breakpoints aligned to design specs  
-- Subtle scroll and hover animations using Framer Motion for user engagement  
+- Subtle scroll and hover animations using **GSAP** and Framer Motion for enhanced user engagement  
 - Optimized images with proper alt attributes for accessibility  
 - Semantic HTML tags applied for SEO benefits  
 
@@ -93,14 +94,16 @@ Thank you for the opportunity!
 **Joseph Tanudjaja**  
 [josephtanudjaja10@gmail.com](mailto:josephtanudjaja10@gmail.com)
 
+---
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh  
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh  
 
 ## Expanding the ESLint configuration
 

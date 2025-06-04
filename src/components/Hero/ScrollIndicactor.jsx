@@ -3,7 +3,7 @@ import React from "react";
 
 const ScrollIndicator = () => {
   return (
-    <div className="absolute hidden flex flex-col items-center max-h-[128px] max-w-[22px] space-y-[10px] right-[0px] bottom-0 top-[253px] z-20">
+    <div className="absolute hidden md:flex flex flex-col items-center max-h-[128px] max-w-[22px] space-y-[10px] right-[0px] bottom-0 top-[253px] z-900">
       {/* Garis vertikal */}
       <div className="relative h-[100px] w-px mb-[6px]">
         {/* Garis atas (80px, abu) */}

@@ -1,53 +1,45 @@
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import React, { useState } from 'react';
+import SectionHeader from '../Headers/SectionHeader';
+import AccordionItem from './AccordionItem';
+import servicesData from './data/ServicesData';
 
-const AccordionItem = ({ title, content, index, isOpen, onClick }) => {
-  const contentRef = useRef(null);
 
-  useEffect(() => {
-    if (contentRef.current) {
-      if (isOpen) {
-        gsap.to(contentRef.current, {
-          height: 'auto',
-          duration: 0.5,
-          ease: 'power2.out',
-          paddingTop: '16px',
-          paddingBottom: '16px',
-          opacity: 1,
-          pointerEvents: 'auto',
-        });
-      } else {
-        gsap.to(contentRef.current, {
-          height: 0,
-          duration: 0.4,
-          ease: 'power2.in',
-          paddingTop: 0,
-          paddingBottom: 0,
-          opacity: 0,
-          pointerEvents: 'none',
-        });
-      }
-    }
-  }, [isOpen]);
+
+const OurServicesSection = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const toggleAccordion = (index) => {
+    setOpenIndex(index === openIndex ? null : index);
+  };
 
   return (
-    <div className="border-b border-gray-300 last:border-none">
-      <button
-        onClick={() => onClick(index)}
-        className="w-full text-left py-4 font-semibold flex justify-between items-center"
-      >
-        {title}
-        <span>{isOpen ? '-' : '+'}</span>
-      </button>
+    <div>
+      <SectionHeader
+        badgeText="OUR SERVICES"
+        badgeMinWidth="min-w-[153px]"
+        headingText="Real estate services tailored to every need"
+        showButton={true}
+        buttonBgColor="#2B3F7D"
+        buttonBorder={false}
+        buttonLabelColor="#ffffff"
+        buttonCircleColor="#72A5E8"
+        textClassname="max-w-[534px]"
+        buttonAlign="bottom"
+      />
 
-      <div
-        ref={contentRef}
-        style={{ height: 0, overflow: 'hidden', opacity: 0, pointerEvents: 'none' }}
-      >
-        <p className="text-gray-700">{content}</p>
+      <div className="mt-12">
+        {servicesData.map((item, index) => (
+          <AccordionItem
+            key={index}
+            {...item}
+            index={index}
+            isOpen={openIndex === index}
+            onClick={toggleAccordion}
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-export default AccordionItem;
+export default OurServicesSection;
